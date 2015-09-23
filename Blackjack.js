@@ -96,7 +96,7 @@ function contains(collection,target) {
 }
 
 function reduce(collection,predicate,start) {
-    var start=0;
+    
     each(collection,function(x) {
          start= predicate(x,start);
     })
