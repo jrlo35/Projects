@@ -13,3 +13,7 @@ About Blackjack.js
 2. Game will prompt you to 'hit' or 'stay' 
 3. Once 'stay', Dealer's hand will be calculated and returned 
 4. Winner decided 
+
+
+
+Sidenotes: There is no splitting, betting, doubling down and there are unlimited decks. But I find it fun to play nonetheless!
