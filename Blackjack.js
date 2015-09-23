@@ -46,16 +46,16 @@ function formatHand(hand) {
 }
 
 //computer logic
-function compChoice(compHand) {
+function compChoice(hand) {
     var bool=true;
     while(bool){
         //deal next card
-        console.log("Dealer's Hand: " + formatHand(compHand));
-        if(calcUpper(compHand)<17 || calcLower(compHand) == 7) {
+        console.log("Dealer's Hand: " + formatHand(hand));
+        if(calcUpper(hand)<17 || calcLower(hand) == 7) {
             //hit on soft 17
-            compHand.push(nextcard());
-            if(calcLower(compHand)>21){
-                console.log(formatHand(compHand));
+            hand.push(nextcard());
+            if(calcLower(hand)>21){
+                console.log(formatHand(hand));
                 console.log('\nDealer bust. You win!');
                 break;
             }
@@ -64,7 +64,7 @@ function compChoice(compHand) {
         else {
             //stand
             bool=false;
-            console.log("Dealer's total is " + calcUpper(compHand) + '\n');
+            console.log("Dealer's total is " + calcUpper(hand) + '\n');
         }
             
     }
@@ -120,6 +120,7 @@ function calcUpper(hand) {
         sum -= 10;
         aceCount--;
     }
+    //returns highest possible number less than 21
     return sum;
 }
 //all Aces equals 1, calculate lowest possible value of hand
@@ -144,7 +145,8 @@ function main() {
     var compHand=[compcard1,compcard2];//dealer hand
     console.log("Your hand: " + formatHand(myHand));
     printDealer(compHand);//show dealers first card
-    //both players blackjack
+    
+    //if both players blackjack
     if(isBlackjack(compHand)&&isBlackjack(myHand)){
         console.log("Dealer's Hand: " + formatHand(compHand));
         console.log("Your hand: " + formatHand(myHand));
@@ -165,11 +167,14 @@ function main() {
     }
     //call player choice
     var choice= playerChoice(myHand);
+    //if player busts-end game
     if(choice===false){
         return;
     }
     //call dealer choice
     compChoice(compHand);
+    
+    //same hand
     if(calcUpper(myHand)===calcUpper(compHand)){
         console.log('Push.');
         return;
@@ -189,20 +194,20 @@ function main() {
 main();
 
 //player logic
-function playerChoice(collection) {
+function playerChoice(hand) {
     var bool=true;
     
     while(bool) {
         //hit 
         var ask=prompt('Type: hit or stay');
         if(ask==='hit'){
-            collection.push(nextcard());
-            console.log("Your hand: " + formatHand(collection));
-            if (calcUpper(collection)===21){
+            hand.push(nextcard());
+            console.log("Your hand: " + formatHand(hand));
+            if (calcUpper(hand)===21){
                 break;
             }
             
-            if (calcLower(collection)>21){
+            if (calcLower(hand)>21){
                 console.log('\nBusted. You lose.');
                 return false;
                 
@@ -212,5 +217,5 @@ function playerChoice(collection) {
             break;
         }
     }
-    console.log("Your total is " + calcUpper(collection) + '\n');
+    console.log("Your total is " + calcUpper(hand) + '\n');
 }
