@@ -122,7 +122,7 @@ function calcUpper(hand) {
     }
     return sum;
 }
-//all Aces equals 1, calculate lowest possible value
+//all Aces equals 1, calculate lowest possible value of hand
 function calcLower(hand) {
     return reduce(hand, function(curr, total) {
         if (curr == 'Ace') {
