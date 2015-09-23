@@ -29,8 +29,8 @@ function isBlackjack(hand) {
     return false;
 }
 
-function printDealer(compHand) {
-    console.log("Dealer showing " + compHand[0]);//show first card
+function printDealer(hand) {
+    console.log("Dealer showing " + hand[0]);//show first card
 }
 //format print statement
 function formatHand(hand) {
