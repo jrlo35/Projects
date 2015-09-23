@@ -9,7 +9,7 @@ Thanks!
 
 
 About Blackjack.js
--Game starts with Your hand and Dealer showing first card
--Game will prompt you to 'hit' or 'stay'
--Once 'stay', Dealer's hand will be calculated and returned
--Winner decided
+1. Game starts with Your hand and Dealer showing first card 
+2. Game will prompt you to 'hit' or 'stay' 
+3. Once 'stay', Dealer's hand will be calculated and returned 
+4. Winner decided 
