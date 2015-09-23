@@ -148,7 +148,7 @@ function main() {
     if(isBlackjack(compHand)&&isBlackjack(myHand)){
         console.log("Dealer's Hand: " + formatHand(compHand));
         console.log("Your hand: " + formatHand(myHand));
-        console.log('Push.')
+        console.log('\nPush.')
         return;
     }
     //check computer blackjack
@@ -171,7 +171,7 @@ function main() {
     //call dealer choice
     compChoice(compHand);
     if(calcUpper(myHand)===calcUpper(compHand)){
-        console.log('\nPush.');
+        console.log('Push.');
         return;
     }
     //determine winner
